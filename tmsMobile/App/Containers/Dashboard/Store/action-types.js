@@ -1,0 +1,2 @@
+export const USER_PROFILE = 'USER_PROFILE';
+export const USER_ATTENDANCE = 'USER_ATTENDANCE';

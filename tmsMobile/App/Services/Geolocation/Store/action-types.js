@@ -1,0 +1,2 @@
+const USER_LOCATION = 'USER_LOCATION';
+export default USER_LOCATION;
