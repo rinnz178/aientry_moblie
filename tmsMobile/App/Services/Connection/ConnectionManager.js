@@ -8,14 +8,15 @@ class ConnectionManager extends PureComponent {
   }
 
   componentDidMount() {
-    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+    this.netInfo = NetInfo.addEventListener(this.handleConnectivityChange);
   }
 
   componentWillUnmount() {
-    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+    this.netInfo && this.netInfo();
   }
 
-  handleConnectivityChange = (isConnected) => {
+  handleConnectivityChange = (state) => {
+    const { isConnected } = state;
     const { connection } = this.props;
     connection(isConnected);
   };
